@@ -51,7 +51,13 @@ def update_grade():
 
 
 def delete_student():
-    pass
+    delete_id = input("Enter student ID to delete: ")
+    for student in students:
+        if student.student_id == delete_id:
+            students.remove(student)
+            print("Student deleted successfully.")
+            return
+    print("Student not found.")
 
 
 def show_statistics():
