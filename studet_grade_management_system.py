@@ -84,10 +84,18 @@ def show_statistics():
     highest_student, highest_grade = max(valid_students, key=lambda item: item[1])
     lowest_student, lowest_grade = min(valid_students, key=lambda item: item[1])
 
+    passing_threshold = 60.0
+    passed = sum(1 for _, grade in valid_students if grade >= passing_threshold)
+    failed = count - passed
+    pass_rate = (passed / count) * 100
+    fail_rate = (failed / count) * 100
+
     print(f"Number of students: {count}")
     print(f"Average grade: {average:.2f}")
     print(f"Highest grade student: {highest_student.name} (ID: {highest_student.student_id}) - Grade: {highest_grade}")
     print(f"Lowest grade student: {lowest_student.name} (ID: {lowest_student.student_id}) - Grade: {lowest_grade}")
+    print(f"Pass rate: {pass_rate:.2f}%")
+    print(f"Fail rate: {fail_rate:.2f}%")
 
 
 def sort_students():
