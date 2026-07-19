@@ -31,7 +31,12 @@ def view_students():
 
 
 def search_student():
-    pass
+    search_id = input("Enter student ID to search: ")
+    for student in students:
+        if student.student_id == search_id:
+            print(f"ID: {student.student_id}, Name: {student.name}, Course: {student.course}, Grade: {student.grade}")
+            return
+    print("Student not found.")
 
 
 def update_grade():
