@@ -40,7 +40,14 @@ def search_student():
 
 
 def update_grade():
-    pass
+    search_id = input("Enter student ID to update grade: ")
+    for student in students:
+        if student.student_id == search_id:
+            new_grade = input("Enter new grade: ")
+            student.grade = new_grade
+            print("Grade updated successfully.")
+            return
+    print("Student not found.")
 
 
 def delete_student():
