@@ -61,7 +61,33 @@ def delete_student():
 
 
 def show_statistics():
-    pass
+    if not students:
+        print("No students found.")
+        return
+
+    valid_students = []
+    for student in students:
+        try:
+            grade_value = float(student.grade)
+            valid_students.append((student, grade_value))
+        except ValueError:
+            continue
+
+    if not valid_students:
+        print("No valid numeric grades available.")
+        return
+
+    count = len(valid_students)
+    total = sum(grade for _, grade in valid_students)
+    average = total / count
+
+    highest_student, highest_grade = max(valid_students, key=lambda item: item[1])
+    lowest_student, lowest_grade = min(valid_students, key=lambda item: item[1])
+
+    print(f"Number of students: {count}")
+    print(f"Average grade: {average:.2f}")
+    print(f"Highest grade student: {highest_student.name} (ID: {highest_student.student_id}) - Grade: {highest_grade}")
+    print(f"Lowest grade student: {lowest_student.name} (ID: {lowest_student.student_id}) - Grade: {lowest_grade}")
 
 
 def sort_students():
