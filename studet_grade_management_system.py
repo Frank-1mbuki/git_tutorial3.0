@@ -10,7 +10,14 @@ students = []
 
 
 def add_student():
-    pass
+    student_id = input("Enter student ID: ")
+    name = input("Enter student name: ")
+    course = input("Enter course: ")
+    grade = input("Enter grade: ")
+
+    student = Student(student_id, name, course, grade)
+    students.append(student)
+    print("Student added successfully.")
 
 
 def view_students():
