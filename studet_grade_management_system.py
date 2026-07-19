@@ -21,7 +21,13 @@ def add_student():
 
 
 def view_students():
-    pass
+    if not students:
+        print("No students found.")
+        return
+
+    print("\nStudent List:")
+    for student in students:
+        print(f"ID: {student.student_id}, Name: {student.name}, Course: {student.course}, Grade: {student.grade}")
 
 
 def search_student():
